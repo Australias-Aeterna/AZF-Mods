@@ -1,11 +1,11 @@
-name = "Australis Aeterna Core";
+name = "ANZIF Core";
 picture = "logo_azf_ca.paa";
 actionName = "GitHub";
-action = "https://github.com/Puddleflop/Mods-Cleanup";
-description = "Australis Aeterna Core Mods";
+action = "https://github.com/Australias-Aeterna/AZF-Mods";
+description = "ANZIF Core Mods";
 logo = "logo_azf_ca.paa";
 logoOver = "logo_azf_ca.paa";
-tooltip = "AZF";
+tooltip = "ANZIF";
 tooltipOwned = "AZF Owned";
 overview = "";
 author = "ANZIF Mod Team";
