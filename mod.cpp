@@ -1,0 +1,12 @@
+name = "Mods Cleanup";
+picture = "";
+actionName = "GitHub";
+action = "https://github.com/Puddleflop/Mods-Cleanup";
+description = "Mods Cleanup";
+logo = "logo_azf.paa";
+logoOver = "";
+tooltip = "AZF";
+tooltipOwned = "AZF Owned";
+overview = "";
+author = "AZF Team";
+overviewPicture = "";

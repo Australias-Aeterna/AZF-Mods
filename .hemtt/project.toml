@@ -1,0 +1,24 @@
+name = "Australis Aeterna Core"
+prefix = "AZF"
+author = "Australis Aeterna Mod Team"
+mainprefix = "z"
+
+[files]
+include = [
+    "*.dll",
+    "*.so",
+    "mod.cpp",
+    "LICENSE",
+    "meta.cpp",
+]
+
+[version]
+path = "addons/main/script_version.hpp"
+git_hash = 0
+
+[hemtt.launch.default]
+parameters = ["-noSplash", "-skipIntro"]
+workshop = [
+    "450814997", # CBA_A3
+    "463939057", # ACE3
+]
