@@ -43,7 +43,7 @@ params [
 			// 3 - disable all units, incl. group leaders and vehicle drivers
 			_x enableSimulationGlobal false;
 			_x hideObjectGlobal true;
-			if (vehicle _x != _x) then {
+			if (!isNull objectParent _x) then {
 				(vehicle _x) hideObjectGlobal true;
 			};
 		};
