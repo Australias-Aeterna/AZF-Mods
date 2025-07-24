@@ -1,5 +1,5 @@
 class ace_medical_treatment {
-	class medication{
+	class Medication{
 		class Morphine {
             hrIncreaseLow[] = {0, 0};
             hrIncreaseNormal[] = {0, 0};
@@ -20,5 +20,5 @@ class ace_medical_treatment {
 		class BasicBandage {
 			effectiveness = QFUNC(getBandageEffectiveness);
 		};
-	}
+	};
 };

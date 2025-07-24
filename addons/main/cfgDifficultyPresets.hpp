@@ -1,5 +1,3 @@
-#include "script_component.hpp"
-
 class DifficultyPresets {
 	class CustomDifficulty {
 		displayName = "Australis Aeternus Difficulty";	// Name of the difficulty preset.

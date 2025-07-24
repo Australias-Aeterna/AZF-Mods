@@ -5,9 +5,9 @@ class CfgPatches
 	class ADDON
 	{
 		name = COMPONENT_NAME;
-		author = "AZF";
+		authors = "AZF";
 		requiredVersion = REQUIRED_VERSION;
-		requiredAddons[] = {"cba_main"};
+		requiredAddons[] = {"cba_main", "azf_main", "ace_medical_treatment"};
 		units[] = {};
 		weapons[] = {};
 		VERSION_CONFIG;
@@ -16,4 +16,4 @@ class CfgPatches
 
 
 #include "CfgEventHandlers.hpp"
-#include "cfgDifficultyPresets.hpp" //New custom preset
+#include "ACE_Medical_Treatment.hpp"
