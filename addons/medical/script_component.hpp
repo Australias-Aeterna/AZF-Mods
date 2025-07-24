@@ -1,5 +1,5 @@
-#define COMPONENT main
-#define COMPONENT_BEAUTIFIED Main
+#define COMPONENT medical
+#define COMPONENT_BEAUTIFIED Medical
 #include "\z\AZF\addons\main\script_mod.hpp"
 
 // #define DEBUG_MODE_FULL
