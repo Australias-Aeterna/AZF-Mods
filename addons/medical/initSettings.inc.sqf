@@ -21,7 +21,7 @@
 	"SLIDER",
 	["Medic Multiplier", "How much more effective bandages are when applied by a medic"],
 	[AZF_SETTINGS, "Medical"],
-	[0.1, 10, 2, 0],
+	[1, 10, 2, 1],
 	false
 ] call CBA_fnc_addSetting;
 
