@@ -18,7 +18,7 @@ class ace_medical_treatment {
 
 	class Bandaging {
 		class BasicBandage {
-			effectiveness = QFUNC(getBandageEffectiveness);
+			effectiveness = 3;
 		};
 	};
 };

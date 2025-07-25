@@ -1,1 +1,1 @@
-PREP(getBandageEffectiveness);
+PREP(bandage);
