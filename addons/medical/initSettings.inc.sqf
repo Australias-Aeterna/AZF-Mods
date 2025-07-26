@@ -25,14 +25,14 @@
 	false
 ] call CBA_fnc_addSetting;
 
-// [
-// 	QGVAR(bloodRegenLimit),
-// 	"SLIDER",
-// 	["Blood Regeneration Limit", "The maximum amount of blood that can be regenerated when you are not bleeding"],
-// 	[AZF_SETTINGS, "Medical"],
-// 	[3, 6, 3.7, 1],
-// 	false
-// ] call CBA_fnc_addSetting;
+[
+	QGVAR(bloodRegenLimit),
+	"SLIDER",
+	["Blood Regeneration Limit", "The maximum amount of blood that can be regenerated when you are not bleeding"],
+	[AZF_SETTINGS, "Medical"],
+	[3, 6, 3.7, 1],
+	false
+] call CBA_fnc_addSetting;
 
 [
 	QGVAR(stableVitalsBloodThreshold),
