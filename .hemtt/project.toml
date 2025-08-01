@@ -11,7 +11,7 @@ include = [
     "mod.cpp",
     "LICENSE",
     "meta.cpp",
-    ".paa"
+    "logo_azf_ca.paa"
 ]
 
 [version]
