@@ -8,9 +8,11 @@
 	}] call CBA_fnc_addEventHandler;
 } forEach ["bandageLocal", "checkBloodPressureLocal", "cprLocal", "fullHealLocal", "ivBagLocal", "medicationLocal", "splintLocal", "tourniquetLocal"];
 
-private _effect = ppEffectCreate ["DynamicBlur", 815];
-_effect ppEffectForceInNVG true;
-_effect ppEffectAdjust [0];
+private _effect = ppEffectCreate [["DynamicBlur", 815],["ColorCorrections", 1500]];
+(_effect select 0) ppEffectForceInNVG true;
+(_effect select 1) ppEffectForceInNVG true;
+(_effect select 0) ppEffectAdjust [0];
+(_effect select 1) ppEffectAdjust [1, 1, 0, [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]];
 _effect ppEffectCommit 0;
 _effect ppEffectEnable false;
 GVAR(unconBlur) = _effect;
@@ -20,7 +22,7 @@ GVAR(unconBlur) = _effect;
 	if (_unit isNotEqualTo player) exitWith {};
 	if (GVAR(unconSpectator)) exitWith {
 		if (_enable) then {
-			_unit setVariable [QACEGVAR(medical_feedback, effectUnconsciousTimeout), 10e10];
+			_unit setVariable [QACEGVAR(medical_feedback,effectUnconsciousTimeout), 10e10];
 			[{
 				if (!(player getVariable ["ace_isunconscious", false]) || {
 					!alive player
@@ -39,20 +41,23 @@ GVAR(unconBlur) = _effect;
 		!(isNull (getAssignedCuratorLogic _unit))
 	}) exitWith {};
 	if (_enable) then {
-		_unit setVariable [QACEGVAR(medical_feedback, effectUnconsciousTimeout), 10e10];
+		_unit setVariable [QACEGVAR(medical_feedback,effectUnconsciousTimeout), 10e10];
 		[{
 			if !(player getVariable ["ace_isunconscious", false]) exitWith {};
-			[false, 0] call ACEFUNC(medical_feedback, effectUnconscious);
+			[false, 0] call ACEFUNC(medical_feedback,effectUnconscious);
 		}] call CBA_fnc_execNextFrame;
 
 		GVAR(unconBlur) ppEffectEnable true;
-		GVAR(unconBlur) ppEffectAdjust [4];
+		(GVAR(unconBlur) select 0) ppEffectAdjust [1];
+		(GVAR(unconBlur) select 1) ppEffectAdjust [0.01, 1, 0, [0, 0, 0, 0], [1, 1, 1, 0], [1, 1, 1, 0]];
 		GVAR(unconBlur) ppEffectCommit 3;
 	} else {
-		_unit setVariable [QACEGVAR(medical_feedback, effectUnconsciousTimeout), nil];
+		_unit setVariable [QACEGVAR(medical_feedback,effectUnconsciousTimeout), nil];
 		GVAR(unconBlur) ppEffectEnable true;
-		GVAR(unconBlur) ppEffectAdjust [0];
+		(GVAR(unconBlur) select 0) ppEffectAdjust [0];
+		(GVAR(unconBlur) select 1) ppEffectAdjust [1, 1, 0, [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]];
 		GVAR(unconBlur) ppEffectCommit 5;
+		GVAR(unconBlur) ppEffectEnable false;
 	};
 }] call CBA_fnc_addEventHandler;
 
@@ -62,14 +67,16 @@ GVAR(unconBlur) = _effect;
 		_unit isNotEqualTo player
 	}) exitWith {};
 	GVAR(unconBlur) ppEffectEnable true;
-	GVAR(unconBlur) ppEffectAdjust [0];
+	(GVAR(unconBlur) select 0) ppEffectAdjust [0];
+	(GVAR(unconBlur) select 1) ppEffectAdjust [1, 1, 0, [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]];
 	GVAR(unconBlur) ppEffectCommit 1;
+	GVAR(unconBlur) ppEffectEnable false;
 }] call CBA_fnc_addClassEventHandler;
 
 [{
-	bloodVolume = player getVariable [QACEGVAR(medical, bloodVolume)];
-	if ((player getVariable [QACEGVAR(medical, bleeding), 0] == 0) &&  bloodVolume < GVAR(bloodRegenLimit)) then {
+	_bloodVolume = player getVariable QACEGVAR(medical,bloodVolume);
+	if ((player getVariable [QACEGVAR(medical,woundbleeding), 0] == 0) && _bloodVolume < GVAR(bloodRegenLimit)) then {
 		_newBloodVolume = _bloodVolume + 0.1;
-		player setVariable [QACEGVAR(medical, bloodVolume), _newBloodVolume + 0.1, true];
+		player setVariable [QACEGVAR(medical,bloodVolume), _newBloodVolume, true];
 	}
-}, GVAR()] call CBA_fnc_addPerFrameHandler;
+}] call CBA_fnc_addPerFrameHandler;
