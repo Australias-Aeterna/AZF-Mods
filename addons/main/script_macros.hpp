@@ -27,3 +27,7 @@
 #define ACEFUNC(var1,var2) QUADRUPLE(ace,var1,fnc,var2)
 #define QACEFUNC(var1,var2) QUOTE(ACEFUNC(var1,var2))
 #define ACELSTRING(var1,var2) QUOTE(TRIPLES(STR,DOUBLES(ace,var1),var2))
+#define ACEPATHTOF(var1, var2) PATHTOF_SYS(z,var1,var2)
+#define ACEQPATHTOF(var1, var2) QUOTE(ACEPATHOF(var1, var2))
+#define ACELINKFUNC(var1,var2) {_this call ACEFUNC(var1,var2)}
+
