@@ -9,10 +9,10 @@ jobs:
     - uses: actions/checkout@v2
     - name: Set VERSION env
       run: echo VERSION=${GITHUB_REF:11} >> $GITHUB_ENV
-    - name: Build addon with HEMTT
+    - name: Setup HEMTT
       uses: arma-actions/hemtt@v1
-      with:
-        command: 'build --release'
+    - name: Build
+      run: hemtt build
     # Upload to Steam Workshop
     - uses: arma-actions/workshop-upload@v1
       with:
