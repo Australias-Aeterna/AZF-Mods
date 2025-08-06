@@ -1,8 +1,8 @@
 [
-	"AZF_debugmode",
+	QGVAR(AZF_debugmode),
 	"CHECKBOX",
 	["Debug Mode", "For Mod Team use only."],
-	["AZF Settings", "Mission Settings"],
+	[AZF_SETTINGS, "Mission Settings"],
 	false,
 	1,
 	{}
