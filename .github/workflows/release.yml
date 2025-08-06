@@ -6,11 +6,11 @@ jobs:
   build_addon:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - name: Set VERSION env
       run: echo VERSION=${GITHUB_REF:11} >> $GITHUB_ENV
     - name: Build addon with HEMTT
-      uses: arma-actions/hemtt@stable
+      uses: arma-actions/hemtt@v1
       with:
         command: 'build --release'
     # Upload to Steam Workshop
