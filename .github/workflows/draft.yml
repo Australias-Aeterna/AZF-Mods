@@ -1,0 +1,44 @@
+name: Draft
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the source code
+        uses: actions/checkout@v4
+      - name: Validate Config
+        run: python3 tools/config_style_checker.py
+      - name: Check Strings
+        run: python3 tools/check_strings.py
+      - name: Check for BOM
+        uses: arma-actions/bom-check@master
+        with:
+          path: "addons"
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the source code
+        uses: actions/checkout@v4
+      - name: Setup HEMTT
+        uses: arma-actions/hemtt@v1
+        with:
+          annotate: false
+      - name: Run HEMTT build
+        run: hemtt build
+      - name: Rename build folder
+        run: mv .hemttout/build .hemttout/@azf
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: azf-${{ github.sha }}-nobin
+          path: .hemttout/@*
+          include-hidden-files: true
+
+
