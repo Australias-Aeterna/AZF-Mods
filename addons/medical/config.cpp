@@ -2,16 +2,16 @@
 
 class CfgPatches
 {
-	class ADDON
-	{
-		name = COMPONENT_NAME;
-		authors = "AZF";
-		requiredVersion = REQUIRED_VERSION;
-		requiredAddons[] = {"cba_main", "azf_main", "ace_medical_treatment", "ace_medical_gui"};
-		units[] = {};
-		weapons[] = {};
-		VERSION_CONFIG;
-	};
+    class ADDON
+    {
+        name = COMPONENT_NAME;
+        authors = "AZF";
+        requiredVersion = REQUIRED_VERSION;
+        requiredAddons[] = {"cba_main", "azf_main", "ace_medical_treatment", "ace_medical_gui"};
+        units[] = {};
+        weapons[] = {};
+        VERSION_CONFIG;
+    };
 };
 
 

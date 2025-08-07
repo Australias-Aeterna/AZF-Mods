@@ -30,8 +30,8 @@ params ["_medic", "_patient", "_bodyPart", "_classname", "", "", "", "_bandageEf
 [_patient, "activity", ACELSTRING(medical_treatment,Activity_bandagedPatient), [[_medic, false, true] call ACEFUNC(common,getName)]] call ACEFUNC(medical_treatment,addToLog);
 
 if ([_medic] call ACEFUNC(medical_treatment,isMedic)) then {
-	// Medics are more practised at applying bandages
-	_bandageEffectiveness = _bandageEffectiveness * GVAR(medicMultiplier);
+    // Medics are more practised at applying bandages
+    _bandageEffectiveness = _bandageEffectiveness * GVAR(medicMultiplier);
 };
 
 [QACEGVAR(medical_treatment,bandageLocal), [_patient, _bodyPart, _classname, _bandageEffectiveness], _patient] call CBA_fnc_targetEvent;
