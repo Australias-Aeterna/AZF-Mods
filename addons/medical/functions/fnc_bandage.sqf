@@ -1,8 +1,8 @@
 #include "..\script_component.hpp"
 /*
- * Author: Glowbal
+ * Author: Glowbal - Modified by AZF Team 
  * Bandages open wounds on the given body part of the patient.
- *
+ * 
  * Arguments:
  * 0: Medic <OBJECT>
  * 1: Patient <OBJECT>

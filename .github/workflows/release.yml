@@ -8,6 +8,17 @@ on:
   workflow_dispatch:
 
 jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout the source code
+      uses: actions/checkout@v4
+    - name: Check for BOM
+      uses: arma-actions/bom-check@master
+      with:
+        path: 'addons'
+    - name: Validate function headers
+      run: python3 docs/tools/document_functions.py --debug
   build:
     runs-on: ubuntu-latest
     steps:
@@ -26,4 +37,4 @@ jobs:
       with:
         name: azf-${{ github.sha }}-nobin
         path: .hemttout/@*
-        include-hidden-files: true # Because .hemttout is a hidden directory
+        include-hidden-files: true

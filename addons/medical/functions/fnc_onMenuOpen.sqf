@@ -1,6 +1,6 @@
 #include "..\script_component.hpp"
 /*
- * Author: Glowbal, mharis001
+ * Author: Glowbal, mharis001 - Modified by AZF Team 
  * Handles opening the Medical Menu. Called from onLoad event.
  *
  * Arguments:
