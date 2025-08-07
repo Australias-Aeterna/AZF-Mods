@@ -1,31 +1,29 @@
-# .github/workflows/release.yml
-on: workflow_dispatch
+name: release
 
+on:
+  push:
+    branches:
+    - master
+  pull_request:
+  workflow_dispatch:
 
 jobs:
-  build_addon:
+  build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Set VERSION env
-      run: echo VERSION=${GITHUB_REF:11} >> $GITHUB_ENV
+    - name: Checkout the source code
+      uses: actions/checkout@v4
     - name: Setup HEMTT
       uses: arma-actions/hemtt@v1
-    - name: Build
+      with:
+        annotate: false
+    - name: Run HEMTT build
       run: hemtt build
-    - name: Create a Release
-      uses: elgohr/Github-Release-Action@v5
-      env:
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Rename build folder
+      run: mv .hemttout/build .hemttout/@azf
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4
       with:
-        title: VERSION
-    # Upload to Steam Workshop
-    - uses: arma-actions/workshop-upload@v1
-      with:
-        appId: '107410'    # default
-        itemId: '' # Id of item to update
-        contentPath: 'releases/${{ env.VERSION }}/@armaforces_mods'
-        changelog: 'Content of change notes'
-      env:
-        STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
-        STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }}
+        name: azf-${{ github.sha }}-nobin
+        path: .hemttout/@*
+        include-hidden-files: true # Because .hemttout is a hidden directory
