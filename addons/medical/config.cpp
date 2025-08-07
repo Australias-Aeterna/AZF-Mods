@@ -1,9 +1,7 @@
 #include "script_component.hpp"
 
-class CfgPatches
-{
-    class ADDON
-    {
+class CfgPatches {
+    class ADDON {
         name = COMPONENT_NAME;
         authors = "AZF";
         requiredVersion = REQUIRED_VERSION;
@@ -13,7 +11,6 @@ class CfgPatches
         VERSION_CONFIG;
     };
 };
-
 
 #include "CfgEventHandlers.hpp"
 #include "ACE_Medical_Treatment_Actions.hpp"
