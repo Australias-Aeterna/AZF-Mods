@@ -1,37 +1,37 @@
 branches:
   - main
-  - release-drafter  # for testing edits to this configuration
+  - release-drafter # for testing edits to this configuration
 
-name-template: 'Version $NEXT_PATCH_VERSION'
-tag-template: 'v$NEXT_PATCH_VERSION'
+name-template: "Version $NEXT_PATCH_VERSION"
+tag-template: "v$NEXT_PATCH_VERSION"
 
 sort-by: title # sort alphabetically
 sort-direction: ascending
 
 categories:
-  - title: '**ADDED:**'
+  - title: "**ADDED:**"
     labels:
-      - 'kind/feature'
-  - title: '**FIXED:**'
+      - "kind/feature"
+  - title: "**FIXED:**"
     labels:
-      - 'kind/bug-fix'
-  - title: '**IMPROVED:**'
+      - "kind/bug-fix"
+  - title: "**IMPROVED:**"
     labels:
-      - 'kind/enhancement'
-      - 'kind/optimization'
-  - title: '**CHANGED:**'
+      - "kind/enhancement"
+      - "kind/optimization"
+  - title: "**CHANGED:**"
     labels:
-      - 'kind/cleanup'
-      - 'kind/change'
-  - title: '**SETTINGS:**'
+      - "kind/cleanup"
+      - "kind/change"
+  - title: "**SETTINGS:**"
     labels:
-      - 'kind/setting'
+      - "kind/setting"
 
 exclude-labels:
-  - 'ignore-changelog'
-  - 'dependencies'
+  - "ignore-changelog"
+  - "dependencies"
 
-change-template: '- $TITLE (#$NUMBER)'
+change-template: "- $TITLE (#$NUMBER)"
 template: |
   _Requires ACE version X.Y.Z or later, CBA version X.Y.Z or later, and Arma 3 version X.Y or later._
 
@@ -42,4 +42,4 @@ template: |
 replacers:
   # Category titles
   - search: '/\#\# (\*\*(ADDED|FIXED|IMPROVED|CHANGED|SETTINGS):\*\*)/g'
-    replace: '$1'
+    replace: "$1"
