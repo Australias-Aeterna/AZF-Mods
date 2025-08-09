@@ -19,18 +19,10 @@ jobs:
           run: hemtt build
         - name: Rename build folder
           run: mv .hemttout/build .hemttout/@azf
-        - name: Upload Artifact
-          uses: actions/upload-artifact@v4
-          with:
-            name: azf-${{ github.sha }}-nobin
-            path: .hemttout/@*
-            include-hidden-files: true
         - name: Publish Release
           uses: softprops/action-gh-release@v1
           with:
             tag_name: v${{ steps.version.outputs.version }}
             files: .hemttout/@azf/*
-            draft: false
-            prerelease: false
           env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
