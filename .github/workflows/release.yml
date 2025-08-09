@@ -1,36 +1,31 @@
 name: Release
 on: workflow_dispatch
+permissions:
+  contents: write
 
 jobs:
   release:
       runs-on: ubuntu-latest
       steps:
-        - name: Get Variables
-          id: version
-          run: echo "::set-output name=version::${GITHUB_REF#refs/tags/v}"
-
         - name: Checkout the source code
           uses: actions/checkout@v4
+        - name: Get Variables
+          id: get_version
+          run: VERSION=$(tr -d '\r' < addons/main/script_version.hpp | awk '/#define[[:space:]]+MAJOR/{maj=$3} /#define[[:space:]]+MINOR/{min=$3} /#define[[:space:]]+PATCHLVL/{pat=$3} END{print maj"."min"."pat}'); echo "version=v$VERSION" >> $GITHUB_OUTPUT
         - name: Setup HEMTT
           uses: arma-actions/hemtt@v1
           with:
             annotate: false
-        - name: Run HEMTT build
-          run: hemtt build
-        - name: Rename build folder
-          run: mv .hemttout/build .hemttout/@azf
-        - name: Upload Artifact
-          uses: actions/upload-artifact@v4
-          with:
-            name: azf-${{ github.sha }}-nobin
-            path: .hemttout/@*
-            include-hidden-files: true
-        - name: Publish Release
+        - name: Run HEMTT release
+          run: hemtt release
+        - name: Remove specific zip file
+          run: rm releases/AZF-latest.zip
+        
+        - name: Create GitHub Release
           uses: softprops/action-gh-release@v1
           with:
-            tag_name: v${{ steps.version.outputs.version }}
-            files: .hemttout/@azf/*
-            draft: false
-            prerelease: false
+            tag_name: ${{ steps.get_version.outputs.version }}
+            name: Release ${{ steps.get_version.outputs.version }}
+            files: releases/*.zip
           env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
