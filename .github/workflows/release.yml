@@ -9,7 +9,7 @@ jobs:
           uses: actions/checkout@v4
         - name: Get Variables
           id: version
-          run: VERSION=$(tr -d '\r' < addoons/main/script_version.hpp | awk '/#define[[:space:]]+MAJOR/{maj=$3} /#define[[:space:]]+MINOR/{min=$3} /#define[[:space:]]+PATCHLVL/{pat=$3} END{print maj"."min"."pat}'); echo "version=v$VERSION" >> $GITHUB_OUTPUT
+          run: VERSION=$(tr -d '\r' < addons/main/script_version.hpp | awk '/#define[[:space:]]+MAJOR/{maj=$3} /#define[[:space:]]+MINOR/{min=$3} /#define[[:space:]]+PATCHLVL/{pat=$3} END{print maj"."min"."pat}'); echo "version=v$VERSION" >> $GITHUB_OUTPUT
         - name: Setup HEMTT
           uses: arma-actions/hemtt@v1
           with:
