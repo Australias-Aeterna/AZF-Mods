@@ -17,7 +17,7 @@ jobs:
             annotate: false
         - name: Run HEMTT release
           run: hemtt release
-        - name: Create Release Directory
+        - name: Remove specific zip file
           run: rm releases/AZF-latest.zip
         - name: Publish Release
           uses: softprops/action-gh-release@v1
