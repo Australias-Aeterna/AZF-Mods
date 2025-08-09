@@ -16,9 +16,11 @@ jobs:
           with:
             annotate: false
         - name: Run HEMTT build
-          run: hemtt build
+          run: hemtt release
         - name: Rename build folder
           run: mv .hemttout/build .hemttout/@azf
+        - name: Zip the build
+          run: zip -r .hemttout/@azf/a3-aeterna-core-${{ steps.version.outputs.version }}.zip .hemttout/@azf
         - name: Publish Release
           uses: softprops/action-gh-release@v1
           with:
