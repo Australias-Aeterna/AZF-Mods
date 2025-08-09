@@ -18,8 +18,7 @@ jobs:
         - name: Run HEMTT release
           run: hemtt release
         - name: Create Release Directory
-          run: cd releases
-          run: ls
+          run: cd releases && ls
         - name: Publish Release
           uses: softprops/action-gh-release@v1
           with:
