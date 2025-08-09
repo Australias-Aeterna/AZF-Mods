@@ -17,6 +17,8 @@ jobs:
             annotate: false
         - name: Run HEMTT release
           run: hemtt release
+        - name: Create Release Directory
+          run: ls
         - name: Publish Release
           uses: softprops/action-gh-release@v1
           with:
