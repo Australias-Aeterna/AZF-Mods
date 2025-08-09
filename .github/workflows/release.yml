@@ -8,7 +8,7 @@ jobs:
         - name: Checkout the source code
           uses: actions/checkout@v4
         - name: Get Variables
-          id: version
+          id: get_version
           run: VERSION=$(tr -d '\r' < addons/main/script_version.hpp | awk '/#define[[:space:]]+MAJOR/{maj=$3} /#define[[:space:]]+MINOR/{min=$3} /#define[[:space:]]+PATCHLVL/{pat=$3} END{print maj"."min"."pat}'); echo "version=v$VERSION" >> $GITHUB_OUTPUT
         - name: Setup HEMTT
           uses: arma-actions/hemtt@v1
@@ -18,10 +18,11 @@ jobs:
           run: hemtt release
         - name: Remove specific zip file
           run: rm releases/AZF-latest.zip
-        - name: Publish Release
+        - name: Create GitHub Release
           uses: softprops/action-gh-release@v1
           with:
-            tag_name: ${{ steps.version.outputs.version }}
+            tag_name: ${{ steps.get_version.outputs.version }}
+            name: Release ${{ steps.get_version.outputs.version }}
             files: releases/*.zip
           env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
