@@ -18,11 +18,11 @@ jobs:
         - name: Run HEMTT release
           run: hemtt release
         - name: Create Release Directory
-          run: cd releases && ls
+          run: rm releases/AZF-latest.zip
         - name: Publish Release
           uses: softprops/action-gh-release@v1
           with:
             tag_name: v${{ steps.version.outputs.version }}
-            files: releases/*{{ steps.version.outputs.version }}.zip
+            files: releases/*.zip
           env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
