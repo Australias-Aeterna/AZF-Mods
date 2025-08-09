@@ -7,7 +7,12 @@ jobs:
       steps:
         - name: Get Variables
           id: version
-          run: echo "::set-output name=version::${GITHUB_REF#refs/tags/v}"
+          run: |  
+            if [[ "${GITHUB_REF}" == refs/tags/* ]]; then
+              echo "::set-output name=version::${GITHUB_REF#refs/tags/v}"
+            else
+              echo "::set-output name=version::"
+            fi
 
         - name: Checkout the source code
           uses: actions/checkout@v4
