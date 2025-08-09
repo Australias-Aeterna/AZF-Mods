@@ -5,17 +5,11 @@ jobs:
   release:
       runs-on: ubuntu-latest
       steps:
-        - name: Get Variables
-          id: version
-          run: |  
-            if [[ "${GITHUB_REF}" == refs/tags/* ]]; then
-              echo "::set-output name=version::${GITHUB_REF#refs/tags/v}"
-            else
-              echo "::set-output name=version::"
-            fi
-
         - name: Checkout the source code
           uses: actions/checkout@v4
+        - name: Get Variables
+          id: version
+          run: VERSION=$(tr -d '\r' < addoons/main/script_version.hpp | awk '/#define[[:space:]]+MAJOR/{maj=$3} /#define[[:space:]]+MINOR/{min=$3} /#define[[:space:]]+PATCHLVL/{pat=$3} END{print maj"."min"."pat}'); echo "version=v$VERSION" >> $GITHUB_OUTPUT
         - name: Setup HEMTT
           uses: arma-actions/hemtt@v1
           with:
