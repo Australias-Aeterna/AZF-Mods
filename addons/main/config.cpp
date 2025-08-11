@@ -5,7 +5,7 @@ class CfgPatches {
         name = COMPONENT_NAME;
         author = "AZF";
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"cba_main"};
+        requiredAddons[] = {"cba_main", "zen_main"};
         units[] = {};
         weapons[] = {};
         VERSION_CONFIG;
@@ -14,4 +14,6 @@ class CfgPatches {
 
 
 #include "CfgEventHandlers.hpp"
-#include "cfgDifficultyPresets.hpp" //New custom preset
+#include "CfgDifficultyPresets.hpp" //New custom preset
+#include "CfgAiSkill.hpp" //AI Skill settings
+
