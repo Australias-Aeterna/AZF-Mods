@@ -3,16 +3,15 @@
 class CfgPatches {
     class ADDON {
         name = COMPONENT_NAME;
-        authors = "AZF";
+        author = "AZF";
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"azf_main", "ace_medical_treatment", "ace_medical_gui"};
+        requiredAddons[] = {"azf_common"};
         units[] = {};
         weapons[] = {};
         VERSION_CONFIG;
     };
 };
 
+#include "Cfg3DEN.hpp"
+#include "CfgSurfaces.hpp"
 #include "CfgEventHandlers.hpp"
-#include "ACE_Medical_Treatment_Actions.hpp"
-#include "ACE_Medical_Treatment.hpp"
-#include "gui.hpp"

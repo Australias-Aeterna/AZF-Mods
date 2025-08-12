@@ -1,41 +1,37 @@
 class Cfg3DEN {
-	class Object {
-		class AttributeCategories {
-			class AAF_Attributes {
-				displayName = "AAF Attributes";
-				collapsed = 1;
-				class Attributes {
-					class stripperExcluder {
-						displayName = "Exclude from gear stripper";
-						tooltip = "Prevents unit being affected by the gear stripper";
-						property = "stripperExcluder";
-                        control = "Checkbox";
-                        typeName = "BOOL";
-                        defaultValue = "false";
-						condition = "objectControllable";
-						expression = "_this setVariable ['%s',_value];";
-						unique = 0; 
-						validate = "none"; 
-					};
-					/*
-					class scaredyCat 
-					{
-						displayName = "Enable ScaredyCat";
-						tooltip = "Unit will surrender if a player within 10m points a weapon at them and verbally orders them to surrender.";
-						property = "scaredyCat";
+    class Object {
+        class AttributeCategories {
+            class anzif_attributes {
+                class Attributes {
+                    class GVAR(isNotStripped) {
+                        displayName = QUOTE(Exclude from gear stripper);
+                        tooltip = QUOTE(Prevents unit being affected by the gear stripper);
+                        property = QUOTE(excluder);
+                        control = QUOTE(Checkbox);
+                        expression = QUOTE(_this setVariable ['%s',_value];);
+                        typeName = QUOTE(BOOL);
+                        defaultValue = QUOTE(false);
+                        condition = QUOTE(objectControllable);
+                    };
+                    /*
+                    class scaredyCat 
+                    {
+                        displayName = "Enable ScaredyCat";
+                        tooltip = "Unit will surrender if a player within 10m points a weapon at them and verbally orders them to surrender.";
+                        property = "scaredyCat";
                         control = "CheckboxNumber";
                         typeName = "BOOL";
                         defaultValue = 0;
-						condition = "objectControllable";
-						expression = "_this setVariable ['%s',_value];";
-						unique = 0;
-						validate = "none";
-					};
-					*/
-				};
-			};
-		};
-	};
+                        condition = "objectControllable";
+                        expression = "_this setVariable ['%s',_value];";
+                        unique = 0;
+                        validate = "none";
+                    };
+                    */
+                };
+            };
+        };
+    };
 };
 
 
