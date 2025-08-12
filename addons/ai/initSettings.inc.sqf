@@ -1,5 +1,5 @@
 [
-	QGVAR(stripper_west),
+	QGVAR(stripperWest),
 	"CHECKBOX",
 	["BLUFOR (Editor Placed Only)", "Apply gear stripper effects to all editor placed Blufor units."]
 	[AZF_SETTINGS, "Gear Stripper - Faction Settings"]
@@ -8,7 +8,7 @@
 ] call CBA_Settings_fnc_init;
 
 [
-	QGVAR(stripper_east),
+	QGVAR(stripperEast),
 	"CHECKBOX",
 	["OPFOR (Editor Placed Only)", "Apply gear stripper effects to all editor placed Opfor units."]
 	[AZF_SETTINGS, "Gear Stripper - Faction Settings"]
@@ -17,7 +17,7 @@
 ] call CBA_Settings_fnc_init;
 
 [
-	QGVAR(stripper_independent),
+	QGVAR(stripperIndependent),
 	"CHECKBOX",
 	["Independent (Editor Placed Only)", "Apply gear stripper effects to all editor placed Independent units."]
 	[AZF_SETTINGS, "Gear Stripper - Faction Settings"]
@@ -26,7 +26,7 @@
 ] call CBA_Settings_fnc_init;
 
 [
-	QGVAR(stripper_civilian),
+	QGVAR(stripperCivilian),
 	"CHECKBOX",
 	["Civilian (Editor Placed Only)", "Apply gear stripper effects to all editor placed Civilian units."]
 	[AZF_SETTINGS, "Gear Stripper - Faction Settings"]
