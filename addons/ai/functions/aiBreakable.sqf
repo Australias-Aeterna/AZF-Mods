@@ -6,11 +6,12 @@ Returns: nothing
 Example: none
 *//////////////////////////////////////////////////////////////////////////////////////////////////
 
-getvariable "aaf_breakable"
+// getVariable "aaf_breakable"
 
-switch
+// switch
 
-"All Equipment" : foreach unit weapons; unit magazines; uniform unit; 
-"Weapons only" :
-"Ammunition Only" :
-default :
+// "All Equipment" : foreach unit weapons; unit magazines; uniform unit; 
+// "Weapons only" :
+// "Ammunition Only" :
+// default :
+

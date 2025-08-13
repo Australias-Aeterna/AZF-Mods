@@ -63,7 +63,7 @@ It then assembles a new array of these values, and then applies it to the player
 	    player setvariable ["ace_medical_addedToUnitLoop", false,true]; //Because ACE has checks to make sure shit is not already enabled, need to disable it before calling the function to enable it so it switches on properly.
 	    [player] call ace_medical_fnc_addVitalLoop;};
 	
-	player setdammage (profileNamespace getvariable ["lrm_med_Dammage",0]);
+	player setdamage (profileNamespace getvariable ["lrm_med_Dammage",0]);
     //Set their damage. The misspelling is fine.
 	If (player getVariable ["ace_isUnconscious",false]) then 
 	    {

@@ -8,7 +8,7 @@ class Cfg3DEN {
                         tooltip = QUOTE(Prevents unit being affected by the gear stripper);
                         property = QUOTE(excluder);
                         control = QUOTE(Checkbox);
-                        expression = QUOTE(_this setVariable ['%s',_value];);
+                        expression = QUOTE(_this setVariable [ARR_2('%s',_value)]);
                         typeName = QUOTE(BOOL);
                         defaultValue = QUOTE(false);
                         condition = QUOTE(objectControllable);

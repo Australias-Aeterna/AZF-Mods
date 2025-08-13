@@ -22,7 +22,6 @@ if (isNull _parent) then //Check if player is NOT in a vehicle
 	profileNamespace setvariable ["lrm_player_loc", lrm_player_loc];
 
 //Medical.
-#include "\z\ace\addons\medical\script_component.hpp"
 
     //Below function goes through each of the medical variables defined in initplayerlocal.sqf and will save them.
     private "_result";

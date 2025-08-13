@@ -17,7 +17,7 @@
         "editor.insertSpaces": true,
         "editor.detectIndentation": false,
         "editor.trimAutoWhitespace": true,
-        "editor.autoClosingBrackets": "always",
+        "editor.autoClosingBrackets": "beforeWhitespace",
         "editor.defaultFormatter": "th3-sh0w3r.sqf-arma3-formatter",
         
     }

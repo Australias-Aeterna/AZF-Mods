@@ -28,7 +28,7 @@ class CfgDifficultyPresets {
             mapContent = 0;             
             autoReport = 0;             
             multipleSaves = 0;          
-        }
+        };
 
         aiLevelPreset = 3;
     };

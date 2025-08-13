@@ -1,7 +1,7 @@
 #include "..\script_component.hpp"
 params ["_unit"];
 {
-    _uniform = uniformContainer _unit;
+	_uniform = uniformContainer _unit;
 	_vest = vestContainer _unit;
 	_backpack = backpackContainer _unit;
 
@@ -64,9 +64,7 @@ params ["_unit"];
 				_medicalBackpack pushBack selectRandomWeighted _medicalSaline;
 			};
 		};
-		default {
-			exitWith{};
-		};
+		default {};
 	};
 
 	{
