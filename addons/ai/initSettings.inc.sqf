@@ -35,7 +35,7 @@
 ] call CBA_Settings_fnc_init;
 
 [
-	QGVAR(AAF_ammoSupplyGlobal),
+	QGVAR(ammoSupplyGlobal),
 	"LIST",
 	["Ammunition Supply Levels", "Determines chances to recover ammunition"],
 	[AZF_SETTINGS, "Gear Stripper - Severity Settings"],
@@ -53,7 +53,7 @@
 ] call CBA_Settings_fnc_init;
 
 [
-	QGVAR(LATSupplyGlobal),
+	QGVAR(latSupplyGlobal),
 	"LIST",
 	["Disposable Launcher Levels", "Determines the chances to recover disposable AT"],
 	[AZF_SETTINGS, "Gear Stripper - Severity Settings"],
@@ -62,39 +62,40 @@
 ] call CBA_Settings_fnc_init;
 
 /*
-            [
-            "AAF_scaredyCatEnabler", // Enabling the entire scaredycat system
-                        "CHECKBOX", 
-                    ["Enable Scaredycat", "Units with Scaredycat ticked in their unit properties will surrender if a player within 10m points a weapon at them and verbally orders them to surrender."]
-                    ["AAF Settings", "Scaredycat Surrender System"]
-            false// Value info
-                        1, 
-                        {}
-            ] call CBA_Settings_fnc_init;
+[
+"AAF_scaredyCatEnabler", // Enabling the entire scaredycat system
+            "CHECKBOX", 
+        ["Enable Scaredycat", "Units with Scaredycat ticked in their unit properties will surrender if a player within 10m points a weapon at them and verbally orders them to surrender."]
+        ["AAF Settings", "Scaredycat Surrender System"]
+false// Value info
+            1, 
+            {}
+] call CBA_Settings_fnc_init;
 */
 
 [
-	"aaf_aiDifficultyB",
+	QGVAR(aiDifficultyWest),
 	"LIST",
 	["BLUFOR (Editor Placed Only)", "Set AI difficulty for BLUFOR"],
-	["AAF Settings", "AI Difficulty"],
-	[["Editor", "Civilian", "Insurgents", "Regular", "Professional", "SpecialForces"], ["No change from Editor Values", "Civilian", "Insurgents", "Regular", "Professional", "SpecialForces"], 0],
-	true
-] call CBA_Settings_fnc_init;
-[
-	"aaf_aiDifficultyI",
-	"LIST",
-	["Independent (Editor Placed Only)", "Set AI difficulty for INDFOR"],
-	["AAF Settings", "AI Difficulty"],
+	[AZF_SETTINGS, "AI Difficulty"],
 	[["Editor", "Civilian", "Insurgents", "Regular", "Professional", "SpecialForces"], ["No change from Editor Values", "Civilian", "Insurgents", "Regular", "Professional", "SpecialForces"], 0],
 	true
 ] call CBA_Settings_fnc_init;
 
 [
-	"aaf_aiDifficultyO",
+	QGVAR(aiDifficultyIndependent),
+	"LIST",
+	["Independent (Editor Placed Only)", "Set AI difficulty for INDFOR"],
+	[AZF_SETTINGS, "AI Difficulty"],
+	[["Editor", "Civilian", "Insurgents", "Regular", "Professional", "SpecialForces"], ["No change from Editor Values", "Civilian", "Insurgents", "Regular", "Professional", "SpecialForces"], 0],
+	true
+] call CBA_Settings_fnc_init;
+
+[
+	QGVAR(aiDifficultyEast),
 	"LIST",
 	["OPFOR (Editor Placed Only)", "Set AI difficulty for OPFOR"],
-	["AAF Settings", "AI Difficulty"],
+	[AZF_SETTINGS, "AI Difficulty"],
 	[["Editor", "Civilian", "Insurgents", "Regular", "Professional", "SpecialForces"], ["No change from Editor Values", "Civilian", "Insurgents", "Regular", "Professional", "SpecialForces"], 0],
 	true
 ] call CBA_Settings_fnc_init;

@@ -24,10 +24,14 @@ GVAR(firstAidKits) = QUOTE(getNumber (_x >>'itemInfo' >> 'type') == TYPE_MEDIKIT
 	};
 }] call CBA_fnc_addClassEventHandler;
 
-cleanup = [{
+_cleanup = [{
 	{
 		if ((alive _x count (units _x)) == 0) then {
 			deleteGroup _x;
 		};
 	} forEach allGroups;
 }, 600] call CBA_fnc_addPerFrameHandler;
+
+["west", missionNamespace getVariable [QGVAR(aaf_aiDifficultyB), "Editor"]] call FUNC(setFactionSkill);
+["independent", missionNamespace getVariable [QGVAR(aaf_aiDifficultyI), "Editor"]] call FUNC(setFactionSkill);
+["east", missionNamespace getVariable [QGVAR(aaf_aiDifficultyO), "Editor"]] call FUNC(setFactionSkill);
