@@ -1,3 +1,18 @@
+#include "..\script_component.hpp"
+/*
+ Author: AZF Mod Team
+ Resets the player, preserving their location, direction, loadout, medical state, and ACRE2 radios.
+
+ Arguments:
+ None
+
+ Return Value:
+ None <OBJECT>
+
+ Example:
+ [] call azf_player_fnc_shbf
+*/
+
 radioTypes = [
     "ACRE_PRC343",
     "ACRE_PRC152",
@@ -38,6 +53,7 @@ removeUniform player;
 removeAllAssignedItems player;
 setPlayerRespawnTime 0;
 forceRespawn player;
+
 waitUntil {
 	playerRespawnTime == -1
 };
@@ -50,9 +66,11 @@ sleep 1;
 player setPosASL _plrLoc;
 player setDir _plrDir;
 player setUnitLoadout _plrGear;
+
 {
 	[player, _medState] call ace_medical_fnc_deserializeState;
 } call CBA_fnc_directCall;
+
 deleteVehicle _plrCorpse;
 player hideObjectGlobal false;
 cutText [" ", "BLACK IN", 1];
